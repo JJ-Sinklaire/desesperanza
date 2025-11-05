@@ -1,0 +1,86 @@
+CREATE DATABASE IF NOT EXISTS panaderia_desesperanza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE panaderia_desesperanza;
+
+CREATE TABLE administradores (
+    id_administrador INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) UNIQUE NOT NULL,
+    password CHAR(60) NOT NULL,
+    nombre_completo VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    activo BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) UNIQUE NOT NULL,
+    password CHAR(60) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    activo BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE recuperacion_password (
+    id_recuperacion INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    token VARCHAR(100) UNIQUE NOT NULL,
+    fecha_expiracion TIMESTAMP NOT NULL,
+    utilizado BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE
+);
+
+CREATE TABLE categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) UNIQUE NOT NULL,
+    descripcion VARCHAR(255)
+);
+
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    id_categoria INT NOT NULL,
+    cantidad_disponible INT DEFAULT 0,
+    cantidad_minima INT DEFAULT 5,
+    es_temporada BOOLEAN DEFAULT FALSE,
+    temporada VARCHAR(50),
+    imagen_url VARCHAR(255),
+    activo BOOLEAN DEFAULT TRUE,
+    creado_por INT NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
+    FOREIGN KEY (creado_por) REFERENCES administradores(id_administrador)
+);
+
+CREATE TABLE pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    estado ENUM('Pendiente', 'Enviado', 'Completado', 'Cancelado') NOT NULL DEFAULT 'Pendiente',
+    total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+CREATE TABLE detalle_pedidos (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_pedido INT NOT NULL,
+    id_producto INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
+    UNIQUE KEY uk_pedido_producto (id_pedido, id_producto)
+);
+
+INSERT INTO administradores (usuario, password, nombre_completo, email, activo) VALUES
+('admin', '$2a$10$ZMKGAxQ467/IZRj.O9Lgg.XrCXe8OSRofob.ePF.4.P5RdTOuIgqu', 'Jefe Desesperación', 'admin@desesperanza.com', TRUE),
+('panadero1', '$2a$10$LgoJdtuYSWZz5Q5qY9UzeOfqjcBPbO.n1mzWbjtJ6fQwnXfcDaFeK', 'Panadero Espectral', 'panadero1@desesperanza.com', TRUE);
+
+
+INSERT INTO categorias (nombre, descripcion) VALUES
+('Panes Dulces', 'Variedad de panadería dulce tradicional.'),
+('Salados', 'Opciones de pan salado, baguettes y más.'),
+('Postres', 'Tartas, pasteles y otras delicias dulces.');
