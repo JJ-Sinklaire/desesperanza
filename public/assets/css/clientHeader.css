@@ -1,0 +1,164 @@
+/* clientHeader.css - Header with warm wood tones */
+
+.client-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all var(--transition-medium);
+}
+
+.header-logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all var(--transition-fast);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-logo:hover {
+    color: var(--color-highlight);
+    transform: scale(1.05);
+}
+
+.client-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.client-nav a {
+    color: var(--color-cream);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.client-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-white);
+    transition: all var(--transition-fast);
+    transform: translateX(-50%);
+}
+
+.client-nav a:hover {
+    color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.client-nav a:hover::after {
+    width: 80%;
+}
+
+.client-nav a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.client-nav a.active::after {
+    width: 80%;
+}
+
+/* Carrito */
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-fast);
+}
+
+.cart-icon:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.cart-icon-svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-white);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--color-highlight);
+    color: var(--color-dark-chocolate);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    width: 50px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.theme-switcher:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-icon {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background: var(--color-white);
+    border-radius: 50%;
+    transition: transform var(--transition-medium);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .theme-icon {
+    transform: translateX(24px);
+    background: var(--color-highlight);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .client-header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .client-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .header-logo {
+        font-size: 1.5rem;
+    }
+}

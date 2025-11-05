@@ -1,0 +1,133 @@
+.orders-list {
+    background-color: var(--client-bg-secondary);
+    border: 1px solid var(--client-bg-tertiary);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.orders-list h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--client-text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--client-bg-tertiary);
+}
+
+.order-item {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--client-bg-tertiary);
+}
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--client-text-primary);
+}
+
+.order-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--client-text-secondary);
+}
+
+.order-details span {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.order-details strong {
+    color: var(--client-text-primary);
+}
+
+#no-orders-message {
+    font-size: 1.1rem;
+    color: var(--client-text-secondary);
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.status-pendiente {
+    background-color: #f0ad4e;
+    color: #fff;
+}
+
+.status-enviado {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.status-completado {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.status-cancelado {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.order-details-toggle {
+    background-color: var(--client-bg-tertiary);
+    color: var(--client-text-secondary);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.order-details-toggle:hover {
+    background-color: var(--client-accent-primary);
+    color: #fff;
+}
+
+.order-details-content {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--client-bg-primary);
+    border-radius: 6px;
+    border: 1px solid var(--client-bg-tertiary);
+}
+
+.order-details-content h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--client-text-primary);
+}
+
+.order-details-content p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: var(--client-text-secondary);
+}
+
+.order-details-content p span {
+    color: var(--client-text-primary);
+    font-weight: 500;
+}

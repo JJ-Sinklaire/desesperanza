@@ -1,0 +1,107 @@
+.profile-form-container {
+    background-color: var(--client-bg-secondary);
+    border: 1px solid var(--client-bg-tertiary);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.profile-form-container h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--client-text-primary);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--client-bg-tertiary);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--client-text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--client-bg-tertiary);
+    background-color: var(--client-bg-primary);
+    color: var(--client-text-primary);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: var(--client-font-family);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--client-accent-primary);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.form-group input:disabled {
+    background-color: var(--client-bg-tertiary);
+    color: var(--client-text-secondary);
+    cursor: not-allowed;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.profile-button {
+    width: auto;
+    min-width: 150px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--client-accent-primary);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: var(--client-accent-secondary);
+}
+
+.profile-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.form-message {
+    font-size: 0.9rem;
+    display: none;
+    margin-top: 15px;
+}
+.form-message.success {
+    color: #2ecc71;
+    display: block;
+}
+.form-message.error {
+    color: #e74c3c;
+    display: block;
+}
+
+hr.form-divider {
+    grid-column: 1 / -1;
+    border: 0;
+    border-top: 1px solid var(--client-bg-tertiary);
+    margin: 15px 0;
+}

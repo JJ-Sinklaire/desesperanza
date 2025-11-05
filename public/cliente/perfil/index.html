@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil | La Desesperanza</title>
+    
+    <link rel="stylesheet" href="../../assets/css/clientBase.css">
+    <link rel="stylesheet" href="../../assets/css/clientHeader.css">
+    <link rel="stylesheet" href="../../assets/css/clientDashboard.css">
+    <link rel="stylesheet" href="../../assets/css/clientPerfil.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="client-header">
+    </header>
+
+    <main>
+        <div class="container dashboard-container">
+            <aside class="dashboard-nav">
+                <ul>
+                    <li><a href="/cliente/dashboard/">Mi Cuenta</a></li>
+                    <li><a href="/cliente/mis-pedidos/">Mis Pedidos</a></li>
+                    <li><a href="/cliente/perfil/" class="active">Editar Perfil</a></li>
+                </ul>
+                <button id="logout-button" class="logout-button">Cerrar Sesión</button>
+            </aside>
+            <section class="dashboard-content">
+                <div class="profile-form-container">
+                    <h2>Editar Información Personal</h2>
+                    <form id="profile-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="usuario">Usuario (no se puede cambiar)</label>
+                                <input type="text" id="usuario" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" id="apellido" required>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono">
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="direccion">Dirección</label>
+                                <textarea id="direccion" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <p id="profile-message" class="form-message"></p>
+                        <button type="submit" id="save-profile-button" class="profile-button">Guardar Cambios</button>
+                    </form>
+
+                    <hr class="form-divider">
+
+                    <h2>Cambiar Contraseña</h2>
+                    <form id="password-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="oldPassword">Contraseña Actual</label>
+                                <input type="password" id="oldPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Contraseña Nueva</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                        </div>
+                        <p id="password-message" class="form-message"></p>
+                        <button type="submit" id="save-password-button" class="profile-button">Actualizar Contraseña</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="client-footer">
+        <p>&copy; La Desesperanza 2025</p>
+    </footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/clientNav.js"></script>
+    <script src="../../assets/js/clientThemeChanger.js"></script>
+    <script src="../js/clientDashboard.js"></script>
+    <script src="../js/clientPerfil.js"></script>
+    <script src="../../assets/js/validaciones.js"></script>
+</body>
+</html>

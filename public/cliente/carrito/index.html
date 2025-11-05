@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito | La Desesperanza</title>
+    
+    <link rel="stylesheet" href="../../assets/css/clientBase.css">
+    <link rel="stylesheet" href="../../assets/css/clientHeader.css">
+    <link rel="stylesheet" href="../../assets/css/clientFooter.css">
+    <link rel="stylesheet" href="../../assets/css/clientCarrito.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="client-header">
+        <a href="/" class="header-logo">La Desesperanza</a>
+        <nav class="client-nav">
+            <a href="/">Inicio</a>
+            <a href="/tienda/">Tienda</a>
+            <a href="/cliente/" class="active" id="login-link">Mi Cuenta</a>
+            
+            <a href="/cliente/carrito/" class="cart-icon" id="cart-link">
+                <svg class="cart-icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.656-.414 1.243-1.067 1.243H4.51c-.653 0-1.137-.587-1.067-1.243L4.707 8.507c.072-.656.596-1.144 1.253-1.144h.211a.75.75 0 0 1 .75.75v.003a.75.75 0 0 1-.75.75H5.961l-.91 8.107h13.916l-.91-8.107h-.211a.75.75 0 0 1-.75-.75v-.003a.75.75 0 0 1 .75.75h.211c.657 0 1.18.487 1.253 1.144Z" />
+                </svg>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </a>
+
+            <div id="client-theme-switcher" class="theme-switcher" title="Cambiar Tema">
+                <div class="theme-icon"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container cart-container">
+            <h1>Mi Carrito</h1>
+            
+            <div id="checkout-success-message">
+                <h2>¡Gracias por tu compra!</h2>
+                <p>Tu pedido ha sido realizado exitosamente. Recibirás un correo de confirmación.</p>
+                <a href="/cliente/mis-pedidos/" class="cta-button" style="margin-top: 20px;">Ver mis pedidos</a>
+            </div>
+
+            <div class="cart-grid" id="cart-grid">
+                <div class="cart-items">
+                    <div id="cart-items-container">
+                    </div>
+                    <p id="cart-empty-message">Tu carrito está vacío.</p>
+                </div>
+                
+                <aside class="cart-summary" id="cart-summary-aside">
+                    <h2>Resumen</h2>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="summary-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío:</span>
+                        <span>Gratis</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="summary-total">$0.00</span>
+                    </div>
+                    <button id="checkout-button" class="checkout-btn" disabled>Finalizar Compra</button>
+                    <p id="checkout-error" class="error-text"></p>
+                </aside>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="client-footer-detailed">
+    </footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/clientNav.js"></script>
+    <script src="../../assets/js/clientThemeChanger.js"></script>
+    <script src="../js/clientCarrito.js"></script>
+</body>
+</html>

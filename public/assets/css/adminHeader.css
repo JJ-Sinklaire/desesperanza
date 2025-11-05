@@ -1,0 +1,113 @@
+
+.admin-header {
+    width: 100%;
+    padding: 10px 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--admin-bg-secondary);
+    border-bottom: 1px solid var(--admin-bg-tertiary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--admin-text-primary);
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--admin-text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header-nav a:hover {
+    background-color: var(--admin-accent-primary);
+    color: #ffffff;
+}
+
+.header-nav a.active {
+    background-color: var(--admin-accent-primary);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#admin-user-menu p {
+    margin: 0;
+    color: var(--admin-text-secondary);
+    font-size: 14px;
+}
+
+#admin-user-menu p strong {
+    color: var(--admin-text-primary);
+}
+
+#admin-logout-button {
+    font-size: 14px;
+    color: var(--admin-accent-red);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#admin-logout-button:hover {
+    text-decoration: underline;
+}
+
+.theme-switcher {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+    background-color: var(--admin-bg-primary);
+}
+.theme-switcher:hover {
+    background-color: var(--admin-bg-tertiary);
+}
+
+.theme-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.5s ease;
+    background-color: var(--admin-text-primary); /* Sol */
+}
+
+body:not(.admin-light-theme) .theme-icon {
+    /* Luna */
+    background-color: transparent;
+    box-shadow: -3px 3px 0 0 var(--admin-text-primary);
+    transform: rotate(-45deg);
+}

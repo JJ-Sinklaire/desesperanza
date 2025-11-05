@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer Contraseña | La Desesperanza</title>
+    <link rel="stylesheet" href="../../assets/css/clientBase.css">
+    <link rel="stylesheet" href="../../assets/css/clientHeader.css">
+    <link rel="stylesheet" href="../../assets/css/clientAuth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="client-header">
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="auth-container">
+                <form id="reset-form" class="auth-form">
+                    <h2>Restablecer Contraseña</h2>
+                    <input type="hidden" id="token">
+                    <div class="form-group">
+                        <label for="new-password">Nueva Contraseña</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <p id="reset-error" class="error-text"></p>
+                    <p id="reset-success" class="error-text" style="color: var(--client-accent-primary);"></p>
+                    <button type="submit" id="reset-button" class="auth-button">Guardar Nueva Contraseña</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="client-footer">
+    </footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/clientNav.js"></script>
+    <script src="../../assets/js/clientThemeChanger.js"></script>
+    <script src="../js/clientReset.js"></script>
+    <script src="../../assets/js/validaciones.js"></script>
+</body>
+</html>

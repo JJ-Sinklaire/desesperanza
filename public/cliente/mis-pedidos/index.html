@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pedidos | La Desesperanza</title>
+    
+    <link rel="stylesheet" href="../../assets/css/clientBase.css">
+    <link rel="stylesheet" href="../../assets/css/clientHeader.css">
+    <link rel="stylesheet" href="../../assets/css/clientDashboard.css">
+    <link rel="stylesheet" href="../../assets/css/clientMisPedidos.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="client-header">
+    </header>
+
+    <main>
+        <div class="container dashboard-container">
+            <aside class="dashboard-nav">
+                <ul>
+                    <li><a href="/cliente/dashboard/">Mi Cuenta</a></li>
+                    <li><a href="/cliente/mis-pedidos/" class="active">Mis Pedidos</a></li>
+                    <li><a href="/cliente/perfil/">Editar Perfil</a></li>
+                </ul>
+                <button id="logout-button" class="logout-button">Cerrar Sesión</button>
+            </aside>
+            <section class="dashboard-content">
+                <div class="orders-list">
+                    <h2>Historial de Pedidos</h2>
+                    <div id="orders-list-container">
+                    </div>
+                    <p id="no-orders-message">Aún no has realizado ningún pedido.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="client-footer">
+        <p>&copy; La Desesperanza 2025</p>
+    </footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/clientNav.js"></script>
+    <script src="../../assets/js/clientThemeChanger.js"></script>
+    <script src="../js/clientDashboard.js"></script>
+    <script src="../js/clientMisPedidos.js"></script>
+</body>
+</html>

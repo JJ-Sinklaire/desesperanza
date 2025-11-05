@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | La Desesperanza</title>
+    <link rel="stylesheet" href="../../assets/css/adminStyles.css">
+    <link rel="stylesheet" href="../../assets/css/adminHeader.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="header-left">
+            <h1 class="header-title">La Desesperanza - Admin</h1>
+        </div>
+        <nav class="header-nav">
+            <a href="/admin/dashboard/">Dashboard</a>
+            <a href="/admin/productos/" class="active">Productos</a>
+            <a href="/admin/pedidos/">Pedidos</a>
+            <a href="/admin/clientes/">Clientes</a>
+        </nav>
+        <div class="header-right">
+            <div id="admin-user-menu">
+                <p>Bienvenido, <strong id="admin-username-placeholder">Cargando...</strong></p>
+            </div>
+            <button id="admin-logout-button">Cerrar Sesión</button>
+            <div id="admin-theme-switcher" class="theme-switcher" title="Cambiar Tema">
+                <div class="theme-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2>Gestión de Productos</h2>
+            <button id="add-product-button" class="btn-add-new">Añadir Producto</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Temporada</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="products-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Añadir Producto</h2>
+                <span class="close-button" id="modal-close-button">&times;</span>
+            </div>
+            
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <input type="hidden" id="imagen_url_actual">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre del Producto</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea id="descripcion" rows="3"></textarea>
+                </div>
+
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="precio">Precio ($)</label>
+                        <input type="number" id="precio" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_categoria">Categoría</label>
+                        <select id="id_categoria" required>
+                            <option value="">Cargando categorías...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="cantidad_disponible">Stock Disponible</label>
+                        <input type="number" id="cantidad_disponible" min="0" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="cantidad_minima">Stock Mínimo</label>
+                        <input type="number" id="cantidad_minima" min="0" value="5">
+                    </div>
+                </div>
+
+                <div class="form-group-inline">
+                    <div class="form-group form-group-checkbox">
+                        <input type="checkbox" id="es_temporada">
+                        <label for="es_temporada">Es de Temporada</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="temporada">Temporada (ej. Día de Muertos)</label>
+                        <input type="text" id="temporada">
+                    </div>
+                </div>
+                
+                <div class="form-group form-group-checkbox">
+                    <input type="checkbox" id="activo" checked>
+                    <label for="activo">Producto Activo (Visible en tienda)</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagen_producto">Subir Imagen (JPG o PNG)</label>
+                    <input type="file" id="imagen_producto" accept="image/png, image/jpeg">
+                    <small>Si no seleccionas una nueva imagen al editar, se conservará la actual.</small>
+                </div>
+                
+                <p id="modal-error-message" class="error-text" style="display: none;"></p>
+
+                <button type="submit" id="save-product-button">Guardar Producto</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="admin-footer">
+        <p>&copy; La Desesperanza 2025</p>
+    </footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../js/adminThemeChanger.js"></script>
+    <script src="../js/adminDashboard.js"></script>
+    <script src="../js/adminProductos.js"></script>
+    <script src="../../assets/js/validaciones.js"></script>
+
+</body>
+</html>

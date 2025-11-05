@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos | La Desesperanza</title>
+    <link rel="stylesheet" href="../../assets/css/adminStyles.css">
+    <link rel="stylesheet" href="../../assets/css/adminHeader.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="header-left">
+            <h1 class="header-title">La Desesperanza - Admin</h1>
+        </div>
+        <nav class="header-nav">
+            <a href="/admin/dashboard/">Dashboard</a>
+            <a href="/admin/productos/">Productos</a>
+            <a href="/admin/pedidos/" class="active">Pedidos</a>
+            <a href="/admin/clientes/">Clientes</a>
+        </nav>
+        <div class="header-right">
+            <div id="admin-user-menu">
+                <p>Bienvenido, <strong id="admin-username-placeholder">Cargando...</strong></p>
+            </div>
+            <button id="admin-logout-button">Cerrar Sesión</button>
+            <div id="admin-theme-switcher" class="theme-switcher" title="Cambiar Tema">
+                <div class="theme-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2>Gestión de Pedidos</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Pedido</th>
+                        <th>Cliente</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="status-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Actualizar Estado del Pedido</h2>
+                <span class="close-button" id="modal-close-button">&times;</span>
+            </div>
+            
+            <form id="status-form">
+                <input type="hidden" id="order-id">
+                
+                <p>Actualizar estado para el Pedido #<strong id="modal-order-id-label"></strong></p>
+                
+                <div class="form-group">
+                    <label for="estado">Nuevo Estado</label>
+                    <select id="estado" required>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Enviado">Enviado</option>
+                        <option value="Completado">Completado</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </div>
+                
+                <p id="modal-error-message" class="error-text" style="display: none;"></p>
+                <button type="submit" id="save-status-button">Guardar Estado</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="admin-footer">
+        <p>&copy; La Desesperanza 2025</p>
+    </footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../js/adminThemeChanger.js"></script>
+    <script src="../js/adminDashboard.js"></script>
+    <script src="../js/adminPedidos.js"></script> 
+    <script src="../../assets/js/validaciones.js"></script>
+
+</body>
+</html>
