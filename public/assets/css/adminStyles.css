@@ -1,26 +1,28 @@
 :root {
-    --admin-bg-primary: #1a1a1a;
-    --admin-bg-secondary: #2c2c2c;
-    --admin-bg-tertiary: #444;
-    --admin-text-primary: #f1f1f1;
-    --admin-text-secondary: #adb5bd;
-    --admin-accent-primary: #007bff;
-    --admin-accent-secondary: #0056b3;
-    --admin-accent-red: #e74c3c;
-    --admin-accent-green: #2ecc71;
-    --admin-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Tema oscuro con tonos amaderados */
+    --admin-bg-primary: #1A0F0A;           /* Chocolate negro (fondo principal) */
+    --admin-bg-secondary: #2C1810;         /* Chocolate muy oscuro (tarjetas/modales) */
+    --admin-bg-tertiary: #3E2723;          /* Café oscuro profundo (bordes/hover) */
+    --admin-text-primary: #FAF5F0;         /* Off-white cálido (texto principal) */
+    --admin-text-secondary: #D7CCC8;       /* Rosa amaderado claro (texto secundario) */
+    --admin-accent-primary: #8D6E63;       /* Acento amaderado (botones principales) */
+    --admin-accent-secondary: #6D4C41;     /* Madera oscura (hover botones) */
+    --admin-accent-red: #D84315;           /* Rojo cálido terracota */
+    --admin-accent-green: #7CB342;         /* Verde oliva cálido */
+    --admin-font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body.admin-light-theme {
-    --admin-bg-primary: #f8f9fa;
-    --admin-bg-secondary: #ffffff;
-    --admin-bg-tertiary: #dee2e6;
-    --admin-text-primary: #212529;
-    --admin-text-secondary: #6c757d;
-    --admin-accent-primary: #007bff;
-    --admin-accent-secondary: #0056b3;
-    --admin-accent-red: #d9534f;
-    --admin-accent-green: #28a745;
+    /* Tema claro con tonos cremosos y cálidos */
+    --admin-bg-primary: #FFF8F0;           /* Blanco cremoso (fondo principal) */
+    --admin-bg-secondary: #FFFFFF;         /* Blanco puro (tarjetas/modales) */
+    --admin-bg-tertiary: #D7CCC8;          /* Rosa amaderado claro (bordes) */
+    --admin-text-primary: #2C1810;         /* Chocolate muy oscuro (texto principal) */
+    --admin-text-secondary: #5D4037;       /* Café medio (texto secundario) */
+    --admin-accent-primary: #5D4037;       /* Café medio (botones principales) */
+    --admin-accent-secondary: #4E342E;     /* Marrón oscuro cálido (hover) */
+    --admin-accent-red: #D84315;           /* Rojo cálido terracota */
+    --admin-accent-green: #689F38;         /* Verde oliva */
 }
 
 body {
@@ -53,7 +55,7 @@ main {
     padding: 15px 0;
     border-top: 1px solid var(--admin-bg-tertiary);
     background-color: var(--admin-bg-secondary);
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 .admin-footer p {
@@ -63,7 +65,7 @@ main {
     margin: 0;
 }
 .table-container {
-    overflow-x: auto; 
+    overflow-x: auto;
 }
 
 table {
@@ -122,7 +124,7 @@ tbody tr:hover {
     color: #fff;
 }
 .btn-delete:hover {
-    background-color: #a94442;
+    background-color: #BF360C;
 }
 
 
@@ -135,25 +137,26 @@ tbody tr:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(26, 15, 10, 0.85);
 }
 
 .modal-content {
     background-color: var(--admin-bg-secondary);
     margin: 5% auto;
     padding: 25px;
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     width: 80%;
     max-width: 600px;
     border-radius: 8px;
     position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--admin-bg-tertiary);
+    border-bottom: 2px solid var(--admin-bg-tertiary);
     padding-bottom: 15px;
     margin-bottom: 20px;
 }
@@ -168,9 +171,10 @@ tbody tr:hover {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.2s ease;
 }
 .close-button:hover {
-    color: var(--admin-text-primary);
+    color: var(--admin-accent-primary);
 }
 
 .modal .form-group {
@@ -183,6 +187,7 @@ tbody tr:hover {
 .modal .form-group textarea,
 .modal .form-group select {
     background-color: var(--admin-bg-primary);
+    border-color: var(--admin-bg-tertiary);
 }
 
 .modal .form-group-inline {
@@ -210,9 +215,10 @@ tbody tr:hover {
     font-weight: 600;
     cursor: pointer;
     border: none;
+    transition: background-color 0.3s ease;
 }
 .btn-add-new:hover {
-    background-color: #27ae60;
+    background-color: #558B2F;
 }
 .login-container {
     display: flex;
@@ -225,10 +231,10 @@ tbody tr:hover {
     background-color: var(--admin-bg-secondary);
     padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     width: 100%;
     max-width: 400px;
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     text-align: center;
 }
 
@@ -258,22 +264,25 @@ tbody tr:hover {
     color: var(--admin-text-secondary);
     font-size: 0.9rem;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     background-color: var(--admin-bg-primary);
     color: var(--admin-text-primary);
     border-radius: 4px;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus {
     border-color: var(--admin-accent-primary);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.2);
 }
 
 button {
@@ -286,27 +295,40 @@ button {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 button:hover {
     background-color: var(--admin-accent-secondary);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 button:disabled {
-    background-color: #555;
+    background-color: var(--admin-bg-tertiary);
     cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
 }
 
 .error-text {
     color: var(--admin-accent-red);
     margin-top: 1rem;
     font-size: 0.9rem;
+    background-color: rgba(216, 67, 21, 0.1);
+    padding: 0.75rem;
+    border-radius: 4px;
+    border-left: 4px solid var(--admin-accent-red);
 }
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     background-color: var(--admin-bg-primary);
     color: var(--admin-text-primary);
     border-radius: 4px;
@@ -314,18 +336,19 @@ button:disabled {
     font-family: var(--admin-font-family);
     min-height: 80px;
     resize: vertical;
+    transition: all 0.3s ease;
 }
 
 .form-group textarea:focus {
     border-color: var(--admin-accent-primary);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.2);
 }
 
 .form-group select {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     background-color: var(--admin-bg-primary);
     color: var(--admin-text-primary);
     border-radius: 4px;
@@ -333,8 +356,9 @@ button:disabled {
     font-family: var(--admin-font-family);
     appearance: none;
     cursor: pointer;
+    transition: all 0.3s ease;
 
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23${encodeURIComponent('adb5bd')}'%3E%3Cpath d='M8 10.75a.5.5 0 0 1-.354-.146l-3-3a.5.5 0 0 1 .708-.708L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3A.5.5 0 0 1 8 10.75Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23D7CCC8'%3E%3Cpath d='M8 10.75a.5.5 0 0 1-.354-.146l-3-3a.5.5 0 0 1 .708-.708L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3A.5.5 0 0 1 8 10.75Z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 16px;
@@ -343,15 +367,15 @@ button:disabled {
 .form-group select:focus {
     border-color: var(--admin-accent-primary);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+    box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.2);
 }
 
 .form-group input[type="file"] {
     width: 100%;
     padding: 0.5rem;
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     background-color: var(--admin-bg-primary);
-    color: var(--admin-text-secondary); 
+    color: var(--admin-text-secondary);
     border-radius: 4px;
     box-sizing: border-box;
     font-family: var(--admin-font-family);
@@ -396,7 +420,7 @@ button:disabled {
 }
 
 .status-pendiente {
-    background-color: #f0ad4e;
+    background-color: #F57C00;
     color: #fff;
 }
 
@@ -433,7 +457,7 @@ main.dashboard-grid {
 
 .dashboard-section {
     background-color: var(--admin-bg-secondary);
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     border-radius: 8px;
     padding: 20px;
 }
@@ -441,9 +465,9 @@ main.dashboard-grid {
 .dashboard-section h3 {
     margin-top: 0;
     margin-bottom: 15px;
-    border-bottom: 1px solid var(--admin-bg-tertiary);
+    border-bottom: 2px solid var(--admin-bg-tertiary);
     padding-bottom: 10px;
-    color: var(--admin-text-secondary);
+    color: var(--admin-text-primary);
     font-size: 1.1rem;
 }
 
@@ -456,16 +480,24 @@ main.dashboard-grid {
 
 .summary-card {
     background-color: var(--admin-bg-secondary);
-    border: 1px solid var(--admin-bg-tertiary);
+    border: 2px solid var(--admin-bg-tertiary);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(141, 110, 99, 0.2);
 }
 
 .summary-card p {
     margin: 0;
     font-size: 0.9rem;
     color: var(--admin-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .summary-card .stat-number {
@@ -508,5 +540,5 @@ main.dashboard-grid {
 .form-group input.is-invalid:focus,
 .form-group textarea.is-invalid:focus,
 .form-group select.is-invalid:focus {
-     box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+    box-shadow: 0 0 0 3px rgba(216, 67, 21, 0.2);
 }
