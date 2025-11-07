@@ -7,9 +7,9 @@
 .dashboard-nav {
     width: 250px;
     flex-shrink: 0;
-    background-color: var(--client-bg-secondary);
+    background-color: var(--color-light-wood);
     border-radius: 8px;
-    border: 1px solid var(--client-bg-tertiary);
+    border: 1px solid var(--color-accent);
     padding: 15px;
     height: fit-content;
 }
@@ -24,19 +24,19 @@
     display: block;
     padding: 12px 15px;
     text-decoration: none;
-    color: var(--client-text-secondary);
+    color: var(--admin-accent-secondary);
     font-weight: 500;
     border-radius: 6px;
     transition: background-color 0.2s, color 0.2s;
 }
 
 .dashboard-nav li a:hover {
-    background-color: var(--client-bg-tertiary);
-    color: var(--client-text-primary);
+    background-color: var(--color-text-secondary);
+    color: var(--color-text-primary);
 }
 
 .dashboard-nav li a.active {
-    background-color: var(--client-accent-primary);
+    background-color: var(--color-accent);
     color: #ffffff;
 }
 
@@ -64,20 +64,20 @@
 }
 
 .welcome-card {
-    background-color: var(--client-bg-secondary);
+    background-color: var(--bg-primary);
     border-radius: 8px;
-    border: 1px solid var(--client-bg-tertiary);
+    border: 1px solid var(--admin-bg-tertiary);
     padding: 30px;
 }
 
 .welcome-card h2 {
     margin-top: 0;
     font-size: 1.8rem;
-    color: var(--client-text-primary);
+    color: var(--color-text-primary);
 }
 
 .welcome-card p {
-    color: var(--client-text-secondary);
+    color: var(--color-text-secondary);
     line-height: 1.6;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .profile-details strong {
-    color: var(--client-text-primary);
+    color: var(--color-text-primary);
     margin-right: 10px;
     min-width: 80px;
     display: inline-block;
