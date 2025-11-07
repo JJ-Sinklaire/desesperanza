@@ -80,33 +80,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createProductCard(product) {
         const card = document.createElement('div');
-        card.className = 'product-card';
+        card.className = 'tienda-product-card';
 
         const price = parseFloat(product.precio).toFixed(2);
         const imageUrl = product.imagen_url || '../assets/images/placeholder.jpg';
 
         card.innerHTML = `
             <div class="product-image-container">
-                <img src="${imageUrl}" alt="${product.nombre}" class="product-image" onerror="this.src='../assets/images/placeholder.jpg'">
+                <img src="${imageUrl}" alt="${product.nombre}" class="tienda-product-image" onerror="this.src='../assets/images/placeholder.jpg'">
             </div>
             <div class="product-info">
-                <h3 class="product-name">${product.nombre}</h3>
-                <p class="product-description">${product.descripcion || ''}</p>
-                <div class="product-footer">
-                    <span class="product-price">$${price}</span>
+                <h3 class="tienda-product-name">${product.nombre}</h3> 
+                <p class="tienda-product-description">${product.descripcion || ''}</p>
+                <div class="tienda-product-footer"> 
+                    <span class="tienda-product-price">$${price}</span> 
                     <div class="quantity-selector">
                         <button class="quantity-btn" data-action="decrease">-</button>
                         <input class="quantity-input" type="number" value="1" min="1" max="99">
                         <button class="quantity-btn" data-action="increase">+</button>
                     </div>
-                    <button class="add-to-cart-btn" data-id="${product.id_producto}">Agregar al Carrito</button>
+                    <button class="tienda-add-to-cart" data-id="${product.id_producto}">Agregar al Carrito</button>
                 </div>
             </div>
         `;
 
         const qtyInput = card.querySelector('.quantity-input');
-        
-        card.querySelector('.add-to-cart-btn').addEventListener('click', (e) => handleAddToCart(e, qtyInput));
+
+        card.querySelector('.tienda-add-to-cart').addEventListener('click', (e) => handleAddToCart(e, qtyInput));
         
         card.querySelectorAll('.quantity-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
