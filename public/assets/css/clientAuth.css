@@ -197,10 +197,20 @@ main {
     border-bottom-color: var(--color-accent);
 }
 
-/* Form Switching */
 #register-form {
     display: none;
 }
+
+/* Reglas añadidas para alternar la visibilidad */
+body.show-register #login-form {
+    display: none;
+}
+
+body.show-register #register-form {
+    display: block;
+    animation: fadeInSlide 0.4s ease-out;
+}
+/* Fin de reglas añadidas */
 
 .auth-form.active {
     display: block;
