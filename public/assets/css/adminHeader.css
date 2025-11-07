@@ -1,113 +1,215 @@
+/* adminHeader.css - Unique header design */
 
 .admin-header {
-    width: 100%;
-    padding: 10px 3%;
+    background: linear-gradient(135deg,
+    var(--admin-bg-secondary) 0%,
+    var(--admin-bg-primary) 100%);
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: var(--admin-bg-secondary);
-    border-bottom: 1px solid var(--admin-bg-tertiary);
+    justify-content: space-between;
+    gap: 2rem;
+    border-bottom: 3px solid var(--admin-accent-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
-    z-index: 100;
-    box-sizing: border-box;
+    z-index: 1000;
+    flex-wrap: wrap;
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 15px;
 }
 
 .header-title {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--admin-text-primary);
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.header-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg,
+    var(--admin-accent-primary) 0%,
+    transparent 100%);
+    border-radius: 2px;
 }
 
 .header-nav {
     display: flex;
-    gap: 15px;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: center;
 }
 
 .header-nav a {
-    text-decoration: none;
     color: var(--admin-text-secondary);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 12px;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
     border-radius: 6px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+}
+
+.header-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--admin-accent-primary);
+    opacity: 0;
+    border-radius: 6px;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .header-nav a:hover {
-    background-color: var(--admin-accent-primary);
-    color: #ffffff;
+    color: var(--admin-text-primary);
+    border-color: var(--admin-accent-primary);
+    transform: translateY(-2px);
+}
+
+.header-nav a:hover::before {
+    opacity: 0.2;
 }
 
 .header-nav a.active {
-    background-color: var(--admin-accent-primary);
-    color: #ffffff;
-    font-weight: 700;
+    background: var(--admin-accent-primary);
+    color: white;
+    border-color: var(--admin-accent-primary);
+    box-shadow: 0 4px 8px rgba(141, 110, 99, 0.3);
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1rem;
+}
+
+#admin-user-menu {
+    background: var(--admin-bg-tertiary);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 2px solid var(--admin-accent-primary);
 }
 
 #admin-user-menu p {
     margin: 0;
     color: var(--admin-text-secondary);
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
-#admin-user-menu p strong {
+#admin-user-menu strong {
     color: var(--admin-text-primary);
+    font-weight: 700;
 }
 
 #admin-logout-button {
-    font-size: 14px;
-    color: var(--admin-accent-red);
-    background: none;
-    border: none;
+    background: var(--admin-accent-red);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    font-weight: 500;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(216, 67, 21, 0.3);
 }
 
 #admin-logout-button:hover {
-    text-decoration: underline;
+    background: #BF360C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(216, 67, 21, 0.4);
 }
 
 .theme-switcher {
-    width: 32px;
-    height: 32px;
+    width: 56px;
+    height: 28px;
+    background: var(--admin-bg-tertiary);
+    border-radius: 14px;
+    position: relative;
     cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s;
-    background-color: var(--admin-bg-primary);
+    transition: background 0.3s ease;
+    border: 2px solid var(--admin-accent-primary);
 }
+
 .theme-switcher:hover {
-    background-color: var(--admin-bg-tertiary);
+    background: var(--admin-accent-primary);
 }
 
 .theme-icon {
-    width: 16px;
-    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--admin-text-primary);
     border-radius: 50%;
-    position: relative;
-    transition: all 0.5s ease;
-    background-color: var(--admin-text-primary); /* Sol */
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-body:not(.admin-light-theme) .theme-icon {
-    /* Luna */
-    background-color: transparent;
-    box-shadow: -3px 3px 0 0 var(--admin-text-primary);
-    transform: rotate(-45deg);
+body.admin-light-theme .theme-icon {
+    transform: translateX(28px);
+    background: var(--admin-accent-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .header-nav {
+        order: 3;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .header-right {
+        order: 2;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .header-nav a {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .header-title {
+        font-size: 1.2rem;
+    }
+
+    #admin-user-menu {
+        display: none;
+    }
 }
