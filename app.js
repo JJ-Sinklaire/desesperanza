@@ -32,7 +32,7 @@ app.use('/api/productos', productoRoutes);
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/clientes', clienteRoutes);
 app.use('/api/pedidos', pedidoRoutes);
-app.use('api/direcciones', direccionesRoutes)
+app.use('/api/direcciones', direccionesRoutes)
 
 app.use((err, req, res, next) => {
     console.error(`Error: ${err.message}`);
