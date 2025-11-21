@@ -17,6 +17,7 @@ const productoRoutes = require('./src/routes/productos');
 const categoriaRoutes = require('./src/routes/categorias');
 const clienteRoutes = require('./src/routes/clientes');
 const pedidoRoutes = require('./src/routes/pedidos');
+const direccionesRoutes = require('./src/routes/direcciones');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +32,7 @@ app.use('/api/productos', productoRoutes);
 app.use('/api/categorias', categoriaRoutes);
 app.use('/api/clientes', clienteRoutes);
 app.use('/api/pedidos', pedidoRoutes);
+app.use('api/direcciones', direccionesRoutes)
 
 app.use((err, req, res, next) => {
     console.error(`Error: ${err.message}`);
