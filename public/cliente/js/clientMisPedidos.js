@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ordersContainer = document.getElementById('orders-list-container');
     const noOrdersMessage = document.getElementById('no-orders-message');
+    const ticketModal = document.getElementById('ticket-modal');
+    const ticketClose = document.querySelector('.close-ticket');
 
     async function loadMisPedidos() {
         try {
@@ -45,7 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span><strong>Fecha:</strong> ${fecha}</span>
                     <span><strong>Total:</strong> $${total}</span>
                 </div>
-                <button class="order-details-toggle" data-id="${order.id_pedido}">Ver Detalles</button>
+                <div style="margin-top: 10px;">
+                    <button class="order-details-toggle" data-id="${order.id_pedido}">Ver Detalles</button>
+                    <button class="btn-ticket" data-id="${order.id_pedido}" style="background-color: #27ae60; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: 500; margin-left: 10px;">Ver Ticket</button>
+                </div>
                 <div class="order-details-content" id="details-${order.id_pedido}"></div>
             `;
             ordersContainer.appendChild(orderElement);
@@ -54,10 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function handleShowDetails(event) {
         const button = event.target;
-        if (!button.classList.contains('order-details-toggle')) {
-            return;
-        }
-
+        
         const id = button.getAttribute('data-id');
         const detailsContainer = document.getElementById(`details-${id}`);
 
@@ -97,8 +99,67 @@ document.addEventListener('DOMContentLoaded', () => {
             button.disabled = false;
         }
     }
+
+    async function loadTicketData(id) {
+        try {
+            const response = await apiFetch(`/api/pedidos/${id}`, 'GET');
+            
+            if (response.success) {
+                const p = response.data.pedido;
+                const d = response.data.detalles;
+
+                document.getElementById('ticket-id').textContent = `Ticket #${p.id_pedido}`;
+                document.getElementById('ticket-fecha').textContent = `Fecha: ${new Date(p.fecha_pedido).toLocaleDateString()}`;
+
+                const list = document.getElementById('ticket-items-list');
+                list.innerHTML = '';
+                
+                d.forEach(item => {
+                    const totalItem = (item.precio_unitario * item.cantidad).toFixed(2);
+                    list.innerHTML += `
+                        <div class="ticket-item-row">
+                            <span>${item.cantidad} x ${item.nombre}</span>
+                            <span>$${totalItem}</span>
+                        </div>
+                    `;
+                });
+
+                const total = parseFloat(p.total);
+                const subtotal = total / 1.16;
+                const iva = total - subtotal;
+
+                document.getElementById('ticket-sub').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('ticket-tax').textContent = `$${iva.toFixed(2)}`;
+                document.getElementById('ticket-total').textContent = `$${total.toFixed(2)}`;
+
+                ticketModal.style.display = 'flex';
+            }
+        } catch (error) {
+            console.error('Error ticket:', error);
+            alert('No se pudo cargar el ticket.');
+        }
+    }
     
-    ordersContainer.addEventListener('click', handleShowDetails);
+    ordersContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('order-details-toggle')) {
+            handleShowDetails(e);
+        } else if (e.target.classList.contains('btn-ticket')) {
+            const id = e.target.getAttribute('data-id');
+            loadTicketData(id);
+        }
+    });
+
+    if (ticketClose) {
+        ticketClose.addEventListener('click', () => {
+            ticketModal.style.display = 'none';
+        });
+    }
+
+    window.addEventListener('click', (e) => {
+        if (e.target === ticketModal) {
+            ticketModal.style.display = 'none';
+        }
+    });
 
     loadMisPedidos();
 });

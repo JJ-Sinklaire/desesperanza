@@ -1,5 +1,3 @@
-/* tienda.css - Shop styles with wood tones */
-
 .tienda-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -27,7 +25,6 @@
     color: var(--color-text-secondary);
 }
 
-/* Filtros */
 .filters-section {
     background: var(--color-white);
     padding: 2rem;
@@ -77,10 +74,9 @@
     border-color: var(--color-accent);
 }
 
-/* Grid de productos */
-.products-grid {
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -146,8 +142,8 @@
 
 .tienda-product-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
     margin-top: auto;
     padding-top: 1rem;
     border-top: 2px solid var(--color-warm-accent);
@@ -157,6 +153,43 @@
     font-size: 1.75rem;
     font-weight: 700;
     color: var(--color-secondary);
+    text-align: center;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.quantity-btn {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover {
+    background: var(--color-primary);
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    padding: 0.25rem;
+    border: 1px solid var(--color-warm-accent);
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 .tienda-product-stock {
@@ -187,9 +220,11 @@
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-top: 1rem;
+    margin-top: 0;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-fast);
+    border: none;
+    cursor: pointer;
 }
 
 .tienda-add-to-cart:hover:not(:disabled) {
@@ -204,7 +239,6 @@
     opacity: 0.6;
 }
 
-/* Paginación */
 .pagination {
     display: flex;
     justify-content: center;
@@ -241,7 +275,6 @@
     cursor: not-allowed;
 }
 
-/* Loading & Empty States */
 .loading-state,
 .empty-state {
     text-align: center;
@@ -264,13 +297,18 @@
     font-size: 1.1rem;
 }
 
-/* Responsive */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .tienda-header h1 {
         font-size: 2rem;
     }
 
-    .products-grid {
+    .product-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }

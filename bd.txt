@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS panaderia_desesperanza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE panaderia_desesperanza;
+CREATE DATABASE IF NOT EXISTS desesperanza CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE desesperanza;
 
 CREATE TABLE administradores (
     id_administrador INT AUTO_INCREMENT PRIMARY KEY,
@@ -29,6 +29,23 @@ CREATE TABLE recuperacion_password (
     fecha_expiracion TIMESTAMP NOT NULL,
     utilizado BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE
+);
+
+/* Nueva tabla agregada */
+CREATE TABLE direcciones (
+    id_direccion INT PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT NOT NULL,
+    alias VARCHAR(100) NOT NULL,
+    calle VARCHAR(255) NOT NULL,
+    colonia VARCHAR(100) NOT NULL,
+    codigo_postal VARCHAR(10) NOT NULL,
+    ciudad VARCHAR(100) NOT NULL,
+    estado VARCHAR(100) NOT NULL,
+    referencias TEXT,
+    latitud DECIMAL(10, 8) NOT NULL,
+    longitud DECIMAL(11, 8) NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
 );
 
 CREATE TABLE categorias (
@@ -75,10 +92,9 @@ CREATE TABLE detalle_pedidos (
     UNIQUE KEY uk_pedido_producto (id_pedido, id_producto)
 );
 
+/* Usuario 'panadero1' eliminado */
 INSERT INTO administradores (usuario, password, nombre_completo, email, activo) VALUES
-('admin', '$2a$10$ZMKGAxQ467/IZRj.O9Lgg.XrCXe8OSRofob.ePF.4.P5RdTOuIgqu', 'Jefe Desesperación', 'admin@desesperanza.com', TRUE),
-('panadero1', '$2a$10$LgoJdtuYSWZz5Q5qY9UzeOfqjcBPbO.n1mzWbjtJ6fQwnXfcDaFeK', 'Panadero Espectral', 'panadero1@desesperanza.com', TRUE);
-
+('admin', '$2a$10$ZMKGAxQ467/IZRj.O9Lgg.XrCXe8OSRofob.ePF.4.P5RdTOuIgqu', 'Jefe Desesperación', 'admin@desesperanza.com', TRUE);
 
 INSERT INTO categorias (nombre, descripcion) VALUES
 ('Panes Dulces', 'Variedad de panadería dulce tradicional.'),

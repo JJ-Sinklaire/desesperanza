@@ -37,7 +37,32 @@
             </section>
         </div>
     </main>
-
+<div id="ticket-modal" class="ticket-modal-overlay" style="display: none;">
+    <div class="ticket-wrapper">
+        <span class="close-ticket">&times;</span>
+        <div class="ticket-content">
+            <div class="ticket-header">
+                <h2>La Desesperanza</h2>
+                <p class="ticket-subtitle">Recibo de Compra</p>
+                <p id="ticket-fecha">Fecha: --/--/----</p>
+                <p id="ticket-id">Ticket #000</p>
+            </div>
+            <div class="ticket-divider">--------------------------------</div>
+            <div class="ticket-items" id="ticket-items-list">
+                </div>
+            <div class="ticket-divider">--------------------------------</div>
+            <div class="ticket-totals">
+                <div class="ticket-row"><span>Subtotal:</span> <span id="ticket-sub">0.00</span></div>
+                <div class="ticket-row"><span>IVA (16%):</span> <span id="ticket-tax">0.00</span></div>
+                <div class="ticket-row total"><span>TOTAL:</span> <span id="ticket-total">0.00</span></div>
+            </div>
+            <div class="ticket-footer">
+                <p>¡Gracias por su compra!</p>
+                <button onclick="window.print()" class="print-btn">🖨️ Imprimir</button>
+            </div>
+        </div>
+    </div>
+</div>
     <script src="../../assets/js/api.js"></script>
     <script src="../../assets/js/clientNav.js"></script>
     <script src="../../assets/js/clientThemeChanger.js"></script>
